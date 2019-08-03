@@ -1,26 +1,3 @@
-<<<<<<< HEAD
-{
-  "development": {
-    "username": "root",
-    "password": "root",
-    "database": "musiCluster_db",
-    "host": "localhost",
-    "dialect": "mysql"
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "testdb",
-    "host": "localhost",
-    "dialect": "mysql",
-    "logging": false
-  },
-  "production": {
-    "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql"
-  }
-}
-=======
 {
   "development": {
     "username": "root",
@@ -42,4 +19,3 @@
     "dialect": "mysql"
   }
 }
->>>>>>> 823ddf3ee8fc90fb61bc084084ae4f8741ab0f6c
