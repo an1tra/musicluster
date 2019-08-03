@@ -1,5 +1,3 @@
-DROP DATABASE IF EXISTS musicCluster_db;
-CREATE DATABASE musicCluster_db;
+DROP DATABASE IF EXISTS passport_demo;
+CREATE DATABASE passport_demo;
 
-CREATE TABLE users;
-CREATE TABLE albums;
