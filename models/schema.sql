@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS musicCluster_db;
-CREATE DATABASE musicCluster_db;
+DROP DATABASE IF EXISTS musiCluster_db;
+CREATE DATABASE musiCluster_db;
 
 CREATE TABLE users;
 CREATE TABLE albums;

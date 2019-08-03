@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "passport_demo",
+    "database": "musiCluster_db",
     "host": "localhost",
     "dialect": "mysql"
   },
