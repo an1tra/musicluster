@@ -1,10 +1,5 @@
-DROP DATABASE IF EXISTS users_db;
-CREATE DATABASE users_db;
+DROP DATABASE IF EXISTS passport_demo;
+CREATE DATABASE passport_demo;
 
-USE users_db
-
-CREATE TABLE users(
-    id int NOT NULL AUTO_INCREMENT,
-    album: varchar(70),
-    PRIMARY KEY (id)
-);
+DROP DATABASE IF EXISTS testdb;
+CREATE DATABASE testdb;
