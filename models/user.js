@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {});
       User.associate = function(models) {
-          User.hasMany(models.User, {
+          User.hasMany(models.Album, {
             onDelete: "cascade"
             });
       };
