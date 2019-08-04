@@ -34,6 +34,7 @@ module.exports = function(app) {
             // response.data.results.albummatches.albumSearch.album[0].image[3]["#text"]
             // response.data.results.albummatches.albumSearch.album[0].url
             })
-        }
-    })
-})
+         }
+     })
+  })
+}
