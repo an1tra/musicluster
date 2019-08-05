@@ -9,12 +9,12 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false,
       }
     });
-    Album.associate = function(models) {
-        Album.belongsTo(models.User, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-    };
+    // Album.associate = function(models) {
+    //     Album.belongsTo(models.User, {
+    //         foreignKey: {
+    //             allowNull: false
+    //         }
+    //     });
+    // };
   return Album;
 };

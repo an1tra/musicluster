@@ -20,12 +20,14 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     }
-  }, {});
-  User.associate = function(models) {
-      User.hasMany(models.Album, {
-        onDelete: "cascade"
-        });
-  };
+  }) // take out curly brace when lines below are uncommented.
+
+  // , {});
+  // User.associate = function(models) {
+  //     User.hasMany(models.Album, {
+  //       onDelete: "cascade"
+  //       });
+  // };
  
 
   // Creating a custom method for our User model. 
