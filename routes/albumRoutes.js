@@ -1,4 +1,6 @@
 var db = require("../models");
+var axios = require("axios");
+
 module.exports = function(app) {
     // get albums for 1 user. May have to update code here.
     app.get("/api/albums/", function(req, res) {
