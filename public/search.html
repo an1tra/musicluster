@@ -104,9 +104,13 @@
             url: queryUrl,
             method: "GET"
           }).then(function(response) {
-                var albumSearch = response.results;
-                console.log(albumSearch)})
-          }
+                var albumSearch = response.results.albummatches.album[0];
+                if(!albumSearch) {
+                    alert("We couldn't find that album.")
+                } else {
+                console.log(albumSearch)} 
+        })
+    }
         //         $("#albums-view").empty();
         //           var albumDiv = $("<div class='album'>");
         //           var pOne = $("<p>").text("Album Name: " + albumSearch.album[0].name);
