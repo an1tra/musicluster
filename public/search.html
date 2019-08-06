@@ -68,17 +68,54 @@
                             </div>
                         </div>
                     </div>
-                            <div class = "row">
-                            <h1>Album Search</h1>         
-                            <div id="buttons-view"></div>
-                            <form id="album-form">
-                              <label for="album-input">Add an Album</label>
-                              <input type="text" id="album-input">
-                              <br>
-                              <input id="add-album" type="submit" value="Add an Album">
-                            </form>
-                            <div id="albums-view"></div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                          <strong>
+                            <i class="fa fa-list-alt"></i> Album Search</strong>
+                        </div>
+                        <div class="card-body">
+              
+                          <!-- Here we create an HTML Form for handling the inputs-->
+                          <form role="form">
+              
+                            <!-- Here we create the text box for capturing the search term-->
+                            <div class="form-group">
+                              <label for="search">Search Album:</label>
+                              <input type="text" class="form-control" id="search-album">
                             </div>
+
+                            <button type="submit" class="btn btn-secondary" id="run-search">
+                                <i class="fa fa-search"></i> Search</button>
+                              <button class="btn btn-secondary" id="clear-all">
+                                <i class="fa fa-trash"></i> Clear Results</button>
+                
+                            </form>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                  <br>
+                          
+                                  <!-- This card will initially be made up of a card and wells for each of the articles retrieved -->
+                                  <div class="card">
+                          
+                                    <!-- card Heading for the retrieved articles box -->
+                                    <div class="card-header">
+                                      <strong>
+                                        <i class="fa fa-table"></i> Albums</strong>
+                                    </div>
+                          
+                                    <!-- This main card will hold each of the resulting articles -->
+                                    <div class="card-body" id="album-section">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                              <!--New Code-->
+
+
+
                     </div>
                 </div>
             </div>
@@ -96,63 +133,53 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
         </script>
         <script type="text/javascript">
-          function displayAlbumInfo(){
-          var albumName = $("#album-input").val().trim();
-          var queryUrl = "http://ws.audioscrobbler.com/2.0/?method=album.search&album=" + albumName + "&api_key=c37ed91eeb7e472772c6e414db2773a3&format=json&limit=5"
-            console.log(albumName);
-          $.ajax({
-            url: queryUrl,
-            method: "GET"
-          }).then(function(response) {
+
+        // New Code  
+        $("#run-search").on("click", function(event) {
+            event.preventDefault();
+
+            
+            var albumName = $("#search-album").val().trim();
+            var queryURL = "http://ws.audioscrobbler.com/2.0/?method=album.search&album=" + albumName + "&api_key=c37ed91eeb7e472772c6e414db2773a3&format=json&limit=5"
+            
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function(response) {
                 var albumSearch = response.results.albummatches.album[0];
                 if(!albumSearch) {
                     alert("We couldn't find that album.")
                 } else {
-                console.log(albumSearch)} 
-        })
-    }
-        //         $("#albums-view").empty();
-        //           var albumDiv = $("<div class='album'>");
-        //           var pOne = $("<p>").text("Album Name: " + albumSearch.album[0].name);
-        //           var pTwo = $("<p>").text("Album Artist: " + albumSearch.album[0].artist);
-        //           var albumCover = $("<img>");
-        //           albumCover.attr("src", albumSearch.album[0].image[3]["#text"]);
-        //           albumCover.attr("url-link", albumSearch.album[0].url);
-        //           albumCover.on("click", followLink);
-        //           albumDiv.append(pOne);
-        //           albumDiv.append(pTwo);
-        //           albumDiv.append(albumCover);
-        //           $("#albums-view").prepend(albumDiv);
-        //           function followLink() {
-        //             window.open(albumSearch.album[0].url, "_self");
-        //           };
-        //           // test code
-        //           var addButton = $("<button>");
-        //           addButton.text("Add to Cluster");
-        //           albumDiv.append(addButton);
-        //           // test code
-        //           console.log(response.results);
-        //     });      
-        // };
-        // function renderButtons() {
-        //     $("#buttons-view").empty();
-        //     for (var i = 0; i < albums.length; i++) {
-        //       var a = $("<button>");
-        //       a.addClass("album-btn");
-        //       a.attr("album-name", albums[i]);
-        //       a.text(albums[i]);
-        //       $("#buttons-view").append(a);
-        //     }
-        //   }
-        $("#add-album").on("click", function(event) {
-            event.preventDefault();
-            displayAlbumInfo()})
-        //     var albumName = $("#album-input").val().trim();
-        //     albums.push(albumName);
-        //     renderButtons();
-        // });
-        // $(document).on("click", ".album-btn", displayAlbumInfo);
-        //     renderButtons();
+                    console.log(albumSearch)
+                }
+
+                    var pOne = $("<p>").text("Album Name: " + albumSearch.name);
+                    var pTwo = $("<p>").text("Album Artist: " + albumSearch.artist);
+                    
+                    var AlbumCover = $("<img class='cover'>");
+                    AlbumCover.attr("src", albumSearch.image[3]["#text"]);
+                    AlbumCover.attr("url-link", albumSearch.url);
+
+                    console.log(albumSearch.url)
+
+                    $("#album-section").append(pOne);
+                    $("#album-section").append(pTwo);
+                    $("#album-section").append(AlbumCover);
+
+                    $(".cover").on("click", function(){
+                    window.open(albumSearch.url, "_self");
+                    });
+            
+            });
+        });
+
+        function clear() {
+            $("#album-section").empty();
+        }
+
+        $("#clear-all").on("click", clear);
+       
+        
         </script>
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         
