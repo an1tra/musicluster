@@ -133,13 +133,25 @@
                   addButton.attr("id", "albumResult")
                   albumDiv.append(addButton);
                   // test code
-                  console.log(response.results);
                   $(document).on("click", "#albumResult", function(event){
                     event.preventDefault()
                     renderButtons(event, albumTitle);
+                    console.log(response.results);
+                  
+                  // below button is testing GET request
+                  // this will be deleted when page is running
+                  var addButton2 = $("<button>");
+                  addButton2.text("Test GET request");
+                  addButton2.attr("id", "albumGET")
+                  albumDiv.append(addButton2);
+                  $(document).on("click", "#albumGET", function(event){
+                    event.preventDefault()
+                    getRequest(event);
                 })
             })
-        }
+        })
+    }
+
         function renderButtons(event, title) {
             var newAlbum = {name: title}
             $.ajax("/api/albums", {
@@ -150,6 +162,14 @@
                 alert("Album added!")
             })
           }
+
+        function getRequest(event) {
+            event.preventDefault()
+            $.get("/api/albums", function(data){
+                console.log(data)
+            })
+        }
+
         $("#add-album").on("click", function(event) {
             event.preventDefault();
             displayAlbumInfo()})
