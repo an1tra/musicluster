@@ -8,6 +8,9 @@ var passport = require("passport");
 
 
 
+
+
+
 // Setting up port
 var PORT = process.env.PORT || 3000;
 
@@ -22,9 +25,9 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 //
 //we are doing a GET to test if our server is working fine
-app.get('/', function(req, res) {    
-  res.send('Welcome to Passport with Sequelize and without HandleBars');
-});
+// app.get('/', function(req, res) {    
+//   res.send('Welcome to Passport with Sequelize and without HandleBars');
+// });
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -55,7 +58,7 @@ require("./routes/htmlRoutes")(app, passport);
 require("./routes/albumRoutes")(app, passport);
 
 
-var syncOptions = { force: false };
+var syncOptions = { force: true };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`

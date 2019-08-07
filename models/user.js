@@ -1,6 +1,7 @@
 // Requiring bcrypt for password hashing. Using the bcryptjs version as 
 //the regular bcrypt module sometimes causes errors on Windows machines
 var bcrypt = require("bcryptjs");
+
 //
 // Creating our User model
 //Set it as export because we will need it required on the server
@@ -19,15 +20,19 @@ module.exports = function(sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false
+    },    
+    avatarPath: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
-  } // take out curly brace when lines below are uncommented.
 
-  , {});
+  }, {});
   User.associate = function(models) {
       User.hasMany(models.Album, {
       
         });
   };
+ 
  
 
   // Creating a custom method for our User model. 
