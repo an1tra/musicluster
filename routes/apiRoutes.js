@@ -1,6 +1,23 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
+var multer  = require('multer');
+var crypto = require("crypto");
+var path = require("path");
+
+
+
+var storage = multer.diskStorage({
+  destination: 'public/uploads/',
+  filename: function (req, file, cb) {
+    crypto.pseudoRandomBytes(16, function (err, raw) {
+      if (err) return cb(err)
+      cb(null, raw.toString('hex') + path.extname(file.originalname))
+    })
+  }
+ })
+
+ var upload = multer({ storage: storage });
 
 //
 module.exports = function(app) {
@@ -17,14 +34,16 @@ module.exports = function(app) {
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
-  app.post("/api/signup", function(req, res) {
-    console.log(req.body);
+  app.post("/api/signup", upload.single('avatar'), function(req, res) {
+    console.log(req.file);
+    console.log(req.body)
     db.User.create({
       email: req.body.email,
-      password: req.body.password
-    }).then(function() {
-      console.log(arguments);
-      res.redirect(307, "/api/login");
+      password: req.body.password,
+      avatarPath: "uploads/" + req.file.filename
+    }).then(function(user) {
+      //console.log(arguments);
+      res.render("members", user);
     }).catch(function(err) {
       console.log(err);
       res.json(err);
@@ -54,4 +73,6 @@ module.exports = function(app) {
     }
   });
 };
+
+
 
