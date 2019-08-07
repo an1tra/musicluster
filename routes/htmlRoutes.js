@@ -9,11 +9,11 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/index");
+      res.render("index");
     } else {
-      res.sendFile(path.join(__dirname, "../public/signup.html"));
+      res.render("index");
     }
-    res.render( "index");
+
   });
 //
   app.get("/login", function(req, res) {
@@ -28,11 +28,10 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be 
   //redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
-
     res.render("members", {user: req.user});
   });
 
   app.get("/search", isAuthenticated, function(req, res) {
-    res.render("search");
+    res.render("search", {user: req.user});
   });  
 };

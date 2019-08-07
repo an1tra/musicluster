@@ -1,157 +1,155 @@
-<body class="profile-page">
-        <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg "
-            color-on-scroll="100" id="sectionsNav">
-            <div class="container">
-                <div class="navbar-translate">
-                    <a class="navbar-brand" href="../index.html">MusiCluster </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                        <span class="navbar-toggler-icon"></span>
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
+<nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100"
+    id="sectionsNav">
+    <div class="container">
+        <div class="navbar-translate">
+            <a class="navbar-brand" href="../index.html">MusiCluster </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
 
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="dropdown nav-item">
-                            <a href="/search" class="nav-link">
-                                Search
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/members">
-                                MyCluster
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/logout">
-                                Sign Out
-                            </a>
-                        </li>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="dropdown nav-item">
+                    <a href="/search" class="nav-link">
+                        Search
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/members">
+                        MyCluster
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">
+                        Sign Out
+                    </a>
+                </li>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-        <div class="page-header header-filter" data-parallax="true"
-            style="background-image:url('assets/images/bg.jpg');"></div>
-        <div class="main main-raised">
-            <div class="profile-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 ml-auto mr-auto">
-                            <div class="profile">
-                                <script id="avatar-template"></script>
-                                <div class="avatar">
-                                    <img src="{{user.avatarPath}}"  alt="profile Image"
-                                        class="img-raised rounded-circle img-fluid">
-                                </div>
-                                <div class="name">
-                                    <h3 class="title">{{user.email}}</h3>
-                                </div>
-                            </div>
-                        </div>
+<div class="page-header header-filter" data-parallax="true" style="background-image:url('assets/images/bg.jpg');"></div>
+<div class="main main-raised">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 ml-auto mr-auto">
+                <div class="profile">
+                    <script id="avatar-template"></script>
+                    <div class="avatar">
+                        <img src="{{user.avatarPath}}" alt="profile Image" class="img-raised rounded-circle img-fluid">
                     </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                          <strong>
-                            <i class="fa fa-list-alt"></i> Album Search</strong>
-                        </div>
-                        <div class="card-body">
-              
-                          <!-- Here we create an HTML Form for handling the inputs-->
-                          <form role="form">
-              
-                            <!-- Here we create the text box for capturing the search term-->
-                            <div class="form-group">
-                              <label for="search">Search Album:</label>
-                              <input type="text" class="form-control" id="search-album">
-                            </div>
-
-                            <button type="submit" class="btn btn-secondary" id="run-search">
-                                <i class="fa fa-search"></i> Search</button>
-                              <button class="btn btn-secondary" id="clear-all">
-                                <i class="fa fa-trash"></i> Clear Results</button>
-                
-                            </form>
-
-                            <div class="row">
-                                <div class="col-sm-12">
-                                  <br>
-                          
-                                  <!-- This card will initially be made up of a card and wells for each of the articles retrieved -->
-                                  <div class="card">
-                          
-                                    <!-- card Heading for the retrieved articles box -->
-                                    <div class="card-header">
-                                      <strong>
-                                        <i class="fa fa-table"></i> Albums</strong>
-                                    </div>
-                          
-                                    <!-- This main card will hold each of the resulting articles -->
-                                    <div class="card-body" id="album-section">
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                              <!--New Code-->
-
-
-
+                    <div class="name">
+                        <h3 class="title">{{user.email}}</h3>
                     </div>
                 </div>
             </div>
-        </body>
+        </div>
 
-        <script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-        </script>
-        <script type="text/javascript">
-        // New Code  
-        $("#run-search").on("click", function(event) {
-            event.preventDefault();
-            
-            var albumName = $("#search-album").val().trim();
-            var queryURL = "http://ws.audioscrobbler.com/2.0/?method=album.search&album=" + albumName + "&api_key=c37ed91eeb7e472772c6e414db2773a3&format=json&limit=5"
-            
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).then(function(response) {
-                var albumSearch = response.results.albummatches.album[0];
-                if(!albumSearch) {
-                    alert("We couldn't find that album.")
-                } else {
-                    console.log(albumSearch)
-                }
-                    var pOne = $("<p>").text("Album Name: " + albumSearch.name);
-                    var pTwo = $("<p>").text("Album Artist: " + albumSearch.artist);
-                    
-                    var AlbumCover = $("<img class='cover'>");
-                    AlbumCover.attr("src", albumSearch.image[3]["#text"]);
-                    AlbumCover.attr("url-link", albumSearch.url);
-                    console.log(albumSearch.url)
-                    $("#album-section").append(pOne);
-                    $("#album-section").append(pTwo);
-                    $("#album-section").append(AlbumCover);
-                    $(".cover").on("click", function(){
-                    window.open(albumSearch.url, "_self");
-                    });
-            
+        <div class="card">
+            <div class="card-header">
+                <strong>
+                    <i class="fa fa-list-alt"></i> Album Search</strong>
+            </div>
+            <div class="card-body">
+
+                <!-- Here we create an HTML Form for handling the inputs-->
+                <form role="form">
+
+                    <!-- Here we create the text box for capturing the search term-->
+                    <div class="form-group">
+                        <label for="search">Search Album:</label>
+                        <input type="text" class="form-control" id="search-album">
+                    </div>
+
+                    <button type="submit" class="btn btn-secondary" id="run-search">
+                        <i class="fa fa-search"></i> Search</button>
+                    <button class="btn btn-secondary" id="clear-all">
+                        <i class="fa fa-trash"></i> Clear Results</button>
+
+                </form>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <br>
+
+                        <!-- This card will initially be made up of a card and wells for each of the articles retrieved -->
+                        <div class="card">
+
+                            <!-- card Heading for the retrieved articles box -->
+                            <div class="card-header">
+                                <strong>
+                                    <i class="fa fa-table"></i> Albums</strong>
+                            </div>
+
+                            <!-- This main card will hold each of the resulting articles -->
+                            <div class="card-body" id="album-section">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--New Code-->
+
+
+
+        </div>
+    </div>
+</div>
+
+{{!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossorigin="anonymous">
+            </script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous">
+            </script> --}}
+<script type="text/javascript">
+    // New Code  
+    $("#run-search").on("click", function (event) {
+        event.preventDefault();
+
+        var albumName = $("#search-album").val().trim();
+        var queryURL = "http://ws.audioscrobbler.com/2.0/?method=album.search&album=" + albumName +
+            "&api_key=c37ed91eeb7e472772c6e414db2773a3&format=json&limit=5"
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            var albumSearch = response.results.albummatches.album[0];
+            if (!albumSearch) {
+                alert("We couldn't find that album.")
+            } else {
+                console.log(albumSearch)
+            }
+            var pOne = $("<p>").text("Album Name: " + albumSearch.name);
+            var pTwo = $("<p>").text("Album Artist: " + albumSearch.artist);
+
+            var AlbumCover = $("<img class='cover'>");
+            AlbumCover.attr("src", albumSearch.image[3]["#text"]);
+            AlbumCover.attr("url-link", albumSearch.url);
+            console.log(albumSearch.url)
+            $("#album-section").append(pOne);
+            $("#album-section").append(pTwo);
+            $("#album-section").append(AlbumCover);
+            $(".cover").on("click", function () {
+                window.open(albumSearch.url, "_self");
             });
+
         });
-        function clear() {
-            $("#album-section").empty();
-        }
-        $("#clear-all").on("click", clear);
+    });
+
+    function clear() {
+        $("#album-section").empty();
+    }
+    $("#clear-all").on("click", clear);
+</script>
