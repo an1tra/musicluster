@@ -8,6 +8,9 @@ var passport = require("passport");
 
 
 
+
+
+
 // Setting up port
 var PORT = process.env.PORT || 3000;
 
@@ -22,14 +25,9 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 //
 //we are doing a GET to test if our server is working fine
-app.get('/', function(req, res) {    
-  res.send('Welcome to Passport with Sequelize and without HandleBars');
-});
-
-// Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(express.static("public"));
+// app.get('/', function(req, res) {    
+//   res.send('Welcome to Passport with Sequelize and without HandleBars');
+// });
 
 
 // We need to use sessions to keep track of our user's login status
