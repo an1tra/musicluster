@@ -20,10 +20,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     }
-  }, {});
+  } // take out curly brace when lines below are uncommented.
+
+  , {});
   User.associate = function(models) {
       User.hasMany(models.Album, {
-        onDelete: "cascade"
+      
         });
   };
  
