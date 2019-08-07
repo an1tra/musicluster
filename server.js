@@ -29,11 +29,6 @@ app.use(express.static("public"));
 //   res.send('Welcome to Passport with Sequelize and without HandleBars');
 // });
 
-// Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(express.static("public"));
-
 
 // We need to use sessions to keep track of our user's login status
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
@@ -58,7 +53,7 @@ require("./routes/htmlRoutes")(app, passport);
 require("./routes/albumRoutes")(app, passport);
 
 
-var syncOptions = { force: true };
+var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
