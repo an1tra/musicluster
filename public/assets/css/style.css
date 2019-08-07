@@ -11,6 +11,15 @@ body, html {
     background-size: cover;
   }
 
+  .app-logo {
+    height: 200px; 
+    width: 200px;
+    background-position: center;
+    position: absolute; 
+    top: 22%; 
+    left:43.5%;
+  }
+
 .loginbox{
     width:320px;
     height:420px;
