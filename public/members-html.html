@@ -83,9 +83,19 @@
                           <!--Music Searches Here-->
                         
                         </div>
+                        
                         <div class="tab-pane text-center gallery" id="compile">
                             <div class="row">
-                          <!--Music Cluster Goes Here-->
+                                <ul class = "album_list">
+                                    {{#each user.Albums}}
+                                    <li>
+                                        {{name}}
+                                        {{artist}}
+                                        {{cover}}
+                                        {{link}}
+                                    </li>
+                                    {{/each}}
+                                </ul>
                             </div>
                         </div>
                         

@@ -55,8 +55,29 @@
                          </div>
                      </div>
                  </div>
+
                  <div class="description text-center">
                      <p>This is where the users cluster will be displayed. </p>
+                        {{#each user.Albums}}
+                        <br>
+                        <div class="album_list card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{name}}</h5>
+                                <a href = {{link}}> <img class="card-img-top" src= "{{cover}}" alt="Cover Album Image"></a>
+                                <h5 class="card-title">{{artist}}</h5>
+                            </div>
+                        </div>
+                        {{/each}}
+
+                            {{!-- Documentation of how info was pulled from array
+                            {{#each user.Albums}}
+                                {{name}}
+                                {{artist}}
+                                {{cover}}
+                                {{link}}
+                                {{/each}} 
+                            --}}
+                        
                  </div>
 
 
@@ -67,13 +88,9 @@
                      </div>
                      <div class="tab-pane text-center gallery" id="compile">
                          <div class="row">
-                             <!--Music Cluster Goes Here-->
                          </div>
                      </div>
-
                  </div>
-
-
              </div>
          </div>
      </div>
