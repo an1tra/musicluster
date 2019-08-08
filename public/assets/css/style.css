@@ -80,6 +80,19 @@ h1 {
     font-size: 16px;
 }
 
+.h6, h6 {
+    font-size: .75rem !important;
+    font-weight: 500;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    line-height: 1.5em;
+    text-transform: uppercase;
+}
+
+.name h6 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .navbar {
     border: 0;
     border-radius: 3px;
@@ -286,8 +299,6 @@ img.rounded {
     border: 0;
     border-radius: .2rem;
     outline: 0;
-    transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1);
-    will-change: box-shadow,transform;
 }
 
 

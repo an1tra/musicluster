@@ -17,6 +17,9 @@ module.exports = function(app) {
     
 
     app.post("/api/albums", function(req, res) {
+        console.log(req);
+        var newAlbum = req.body;
+        newAlbum.UserId = req.user.id;
         db.Album.create(req.body)
         .then(function (){
             res.json(res.data)
