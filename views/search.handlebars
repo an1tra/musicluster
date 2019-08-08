@@ -56,7 +56,6 @@
                 <strong>
                     <i class="fa fa-list-alt"></i> Album Search</strong>
             </div>
-            <div class="card-body">
 
                 <!-- Here we create an HTML Form for handling the inputs-->
                 <form role="form">
@@ -67,40 +66,48 @@
                         <input type="text" class="form-control" id="search-album">
                     </div>
 
-                    <button type="submit" class="btn btn-secondary" id="run-search">
+                    <button type="button" class="btn btn-secondary" id="run-search" data-toggle="modal" data-target="#searchModal">
                         <i class="fa fa-search"></i> Search</button>
                     <button class="btn btn-secondary" id="clear-all">
                         <i class="fa fa-trash"></i> Clear Results</button>
 
                 </form>
 
-                <div class="row">
-                    <div class="col-sm-12">
-                        <br>
-
-                        <!-- This card will initially be made up of a card and wells for each of the articles retrieved -->
-                        <div class="card">
-
-                            <!-- card Heading for the retrieved articles box -->
-                            <div class="card-header">
-                                <strong>
-                                    <i class="fa fa-table"></i> Albums</strong>
-                            </div>
-
-                            <!-- This main card will hold each of the resulting articles -->
-                            <div class="card-body" id="album-section">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            <!-- This modal will show the search results -->
+                            
+                
+           </div>
             <!--New Code-->
 
 
 
         </div>
     </div>
+
+<div class="modal fade" id = "searchModal">
+    <div class="modal-dialog" role="document">
+        <div class = "modal-content">
+
+            <div class = "modal-header">
+                <h4 class = "model-title" id = "albumName"></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class = "modal-body">
+                <h5 id = "albumArtist"></h5>
+                <img class = "albumCover" alt = "Image of Album cover."></img>
+            </div>
+
+            <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id = "saveToCluster">Add to Cluster</button>
+            </div>
+
+        </div>
+    </div>
 </div>
+
 
 {{!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
                 integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -125,59 +132,49 @@
         method: "GET"
     }).then(function(response) {
         var albumSearch = response.results.albummatches.album[0];
-        console.log(albumTitle)
         if(!albumSearch) {
             alert("We couldn't find that album.")
         } else {
             console.log(albumSearch)
-            clear()
             
+            // variables created from AJAX search
             var albumTitle = albumSearch.name 
-            var pOne = $("<p>").text("Album Name: " + albumSearch.name);
-            var pTwo = $("<p>").text("Album Artist: " + albumSearch.artist);
-            
-            var AlbumCover = $("<img class='cover'>");
-            AlbumCover.attr("src", albumSearch.image[3]["#text"]);
-            AlbumCover.attr("url-link", albumSearch.url);
+            var albumArtist = albumSearch.artist
+            var albumCover = albumSearch.image[3]["#text"]
+            var albumLink = albumSearch.url
 
-            var addButton = $("<button>");
-            addButton.text("Add to Cluster");
-            addButton.attr("id", "albumResult")
+            // moving to Modal
+            $("#albumName").text(albumTitle)
+            $("#albumArtist").text(albumArtist)
 
-            $("#album-section").append(pOne);
-            $("#album-section").append(pTwo);
-            $("#album-section").append(AlbumCover);
-            $("#album-section").append(addButton);
-
-            $(".cover").on("click", function(){
-            window.open(albumSearch.url, "_self");
+            $(".albumCover").attr("src", albumCover)
+            $(".albumCover").attr("url-link", albumLink)
+            $(".albumCover").on("click", function(){
+            window.open(albumLink, "_self");
             })
 
-            $(document).on("click", "#albumResult", function(event){
+            $("#saveToCluster").on("click", function(event){
             event.preventDefault()
-            postAlbum(albumTitle);
-            alert("Album Added")
+            postAlbum(albumTitle, albumArtist, albumCover, albumLink);
+            alert("Album added!")
             location.reload()
             });            
         };
     })
 })
 
-
-function clear() {
-    $("#album-section").empty();
-}
-
-function postAlbum(title) {
-    var newAlbum = {name: title}
+// AJAX POST to create new Albums entry
+function postAlbum(name, artist, cover, link) {
+    var newAlbum = ({name: name,
+                    artist: artist,
+                    cover: cover,
+                    link: link})
     $.ajax("/api/albums", {
         type: "POST",
         data: newAlbum
     }).then(function() {
         console.log(name)
-        alert("Album added!")
     })
   }
 
-$("#clear-all").on("click", clear);
 </script>

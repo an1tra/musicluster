@@ -58,11 +58,12 @@
 
                  <div class="description text-center">
                      <p>This is where the users cluster will be displayed. </p>
-                     <ul class="album_list">
+                            <ul class="album_list">
                         {{#each user.Albums}}
                             <li>
-                            {{id}}
                             {{name}}
+                            {{artist}}
+                            <a href = {{link}}> <img src="{{cover}}" alt = "Cover Album Image"></a>
                             </li>
                         {{/each}}
                         </ul>
@@ -76,7 +77,6 @@
                      </div>
                      <div class="tab-pane text-center gallery" id="compile">
                          <div class="row">
-                             <!--Music Cluster Goes Here-->
                          </div>
                      </div>
                  </div>
