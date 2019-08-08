@@ -29,8 +29,15 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be 
   //redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
-    db.Album.findAll({})
-    res.render("members", {user: req.user});
+    db.Album.findAll({
+      where: {
+        userId: req.user.id
+      }
+    }).then(function(dbAlbum) {
+      req.user.Albums = dbAlbum
+      res.render("members", {user: req.user});
+    })
+   
   });
 
   app.get("/search", isAuthenticated, function(req, res) {
