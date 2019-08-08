@@ -1,24 +1,17 @@
- <body class="profile-page">
-     <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100"
-         id="sectionsNav">
+<div class="profile-page">
+     <nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top  navbar-expand-lg">
          <div class="container">
              <div class="navbar-translate">
-                 <a class="navbar-brand" href="../index.html">MusiCluster </a>
-                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
-                     aria-label="Toggle navigation">
-                     <span class="navbar-toggler-icon"></span>
-                     <span class="navbar-toggler-icon"></span>
-                     <span class="navbar-toggler-icon"></span>
-                 </button>
+                 <a class="navbar-brand" href="/">
+                    <img src="assets/images/applogo.png" alt="app logo" class="app-logo-members-search">
+                 </a>
              </div>
-
-             <div class="collapse navbar-collapse">
+             
                  <ul class="navbar-nav ml-auto">
                      <li class="nav-item">
                          <a href="/search" class="nav-link">
                              Search
                          </a>
-
                      </li>
                      <li class="nav-item">
                          <a class="nav-link" href="javascript:void(0)">
@@ -32,10 +25,9 @@
                      </li>
                      </li>
                  </ul>
-             </div>
+             
          </div>
      </nav>
-
      <div class="page-header header-filter" data-parallax="true" style="background-image:url('assets/images/bg.jpg');">
      </div>
      <div class="main main-raised">
@@ -44,8 +36,7 @@
                  <div class="row">
                      <div class="col-md-6 ml-auto mr-auto">
                          <div class="profile">
-                             <script id="avatar-template"></script>
-                             <div class="avatar">
+                             <div class="avatar-username">
                                  <img src="{{user.avatarPath}}" alt="profile Image"
                                      class="img-raised rounded-circle img-fluid">
                              </div>
@@ -56,7 +47,7 @@
                      </div>
                  </div>
 
-                 <div class="description text-center">
+                   <div class="description text-center">
                      <p>This is where the users cluster will be displayed. </p>
                         {{#each user.Albums}}
                         <br>
@@ -76,21 +67,20 @@
                                 {{cover}}
                                 {{link}}
                                 {{/each}} 
-                            --}}
-                        
+                            --}}  
                  </div>
-
 
                  <div class="tab-content tab-space">
                      <div class="tab-pane active text-center" id="search">
                          <!--Music Searches Here-->
-
                      </div>
                      <div class="tab-pane text-center gallery" id="compile">
                          <div class="row">
+                             <!--Music Cluster Goes Here-->
                          </div>
                      </div>
                  </div>
              </div>
          </div>
      </div>
+</div>
