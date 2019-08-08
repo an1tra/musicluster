@@ -27,7 +27,6 @@ $("#run-search").on("click", function(event) {
             var addButton = $("<button>");
             addButton.text("Add to Cluster");
             addButton.attr("id", "albumResult")
-            console.log(albumSearch.url)
 
             $("#album-section").append(pOne);
             $("#album-section").append(pTwo);
