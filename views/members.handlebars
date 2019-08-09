@@ -1,6 +1,6 @@
- <body style="background-image: none;">
+ 
  <div class="profile-page">
-     <nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top  navbar-expand-lg">
+     <nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg">
          <div class="container">
              <div class="navbar-translate">
                  <a class="navbar-brand" href="/">
@@ -26,11 +26,13 @@
                      </li>
                      </li>
                  </ul>
-             
-         </div>
      </nav>
-     <div class="page-header header-filter" data-parallax="true"style="background-image:url('assets/images/bg.jpg');">
+
+     <div class="page-header header-filter" data-parallax="true">
      </div>
+
+     {{!-- style="background-image:url('assets/images/bg.jpg');" --}}
+
      <div class="main main-raised">
          <div class="profile-content">
              <div class="container">
@@ -48,26 +50,29 @@
                      </div>
                  </div>
 
-            <div class="row">
-                <div class="col-md-12">
-                     <div class="card-columns display: inline-block ">
-                        {{#each user.Albums}}
-                        <br>
-                        <div class="album_list card" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">{{name}}</h5>
-                                <a href = {{link}}> <img class="card-img-top" src= "{{cover}}" alt="Cover Album Image"></a>
-                                <h5 class="card-title text-center">{{artist}}</h5>
-                            </div>
-                        </div>
-                        {{/each}}
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</body>
+                 <div class="row">
+                     <div class="col-md-12">
+                         <div class="card-columns display: inline-block ">
+                             {{#each user.Albums}}
+                             <br>
+                             <div class="album_list card shadow" style="width: 18rem;">
+                                 <div class="card-body">
+                                     <h5 class="card-title text-center">{{name}}</h5>
+                                     <a href={{link}}> <img class="card-img-top" src="{{cover}}"
+                                             alt="Cover Album Image"></a>
+                                     <h5 class="card-title text-center">{{artist}}</h5>
+                                 </div>
+                             </div>
+                             {{/each}}
+
+                         </div>
+
+
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+
+
+      
