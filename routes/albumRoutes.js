@@ -4,9 +4,7 @@ var axios = require("axios");
 module.exports = function(app) {
     // get albums for 1 user. May have to update code here.
     app.get("/api/albums", function(req, res) {
-        db.Album.findAll({
-            attributes: ['name']
-        })
+        db.Album.findAll({})
         .then(function (){
             console.log(res.data);
             res.json(res.data)

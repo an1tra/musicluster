@@ -1,8 +1,11 @@
+ <div class="profile-page">
 <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100"
     id="sectionsNav">
     <div class="container">
         <div class="navbar-translate">
-            <a class="navbar-brand" href="../index.html">MusiCluster </a>
+            <a class="navbar-brand" href="/">
+                <img src="assets/images/applogo.png" alt="app logo" class="app-logo-members-search">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -66,24 +69,16 @@
                         <input type="text" class="form-control" id="search-album">
                     </div>
 
-                    <button type="button" class="btn btn-secondary" id="run-search" data-toggle="modal" data-target="#searchModal">
+                    <button type="submit" class="btn btn-secondary" id="run-search" data-toggle="modal" data-target="#searchModal">
                         <i class="fa fa-search"></i> Search</button>
-                    <button class="btn btn-secondary" id="clear-all">
-                        <i class="fa fa-trash"></i> Clear Results</button>
+
 
                 </form>
-
-                            <!-- This modal will show the search results -->
-                            
-                
-           </div>
-            <!--New Code-->
-
-
-
         </div>
     </div>
+</div>
 
+<!-- Modal with search results -->
 <div class="modal fade" id = "searchModal">
     <div class="modal-dialog" role="document">
         <div class = "modal-content">
@@ -107,7 +102,6 @@
         </div>
     </div>
 </div>
-
 
 {{!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
                 integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
