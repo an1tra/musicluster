@@ -43,7 +43,10 @@ module.exports = function(app) {
       avatarPath: "uploads/" + req.file.filename
     }).then(function(user) {
       //console.log(arguments);
-      res.render("members", user);
+      passport.authenticate('local')(req, res, function () {
+        res.end("/members");
+        }
+      )
     }).catch(function(err) {
       console.log(err);
       res.json(err);
