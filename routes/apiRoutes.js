@@ -4,8 +4,10 @@ var passport = require("../config/passport");
 var multer  = require('multer');
 var crypto = require("crypto");
 var path = require("path");
+var axios = require("axios");
 
-
+// .env for LastFM Key
+var apiKey = process.env.LASTFM_KEY;
 
 var storage = multer.diskStorage({
   destination: 'public/uploads/',
@@ -75,6 +77,15 @@ module.exports = function(app) {
       });
     }
   });
+
+  // Route for using LastFM API
+  app.get("/api/albums/:album", function(req, res) {
+    axios.get("https://ws.audioscrobbler.com/2.0/?method=album.search&album=" + req.params.album + "&api_key=" + apiKey + "&format=json&limit=5").then(function(results){
+      console.log(results.data);
+      res.json(results.data);
+    })
+  });
+
 };
 
 
