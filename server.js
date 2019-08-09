@@ -6,11 +6,6 @@ var bodyParser = require("body-parser");
 var session = require("express-session");
 var passport = require("passport");
 
-
-
-
-
-
 // Setting up port
 var PORT = process.env.PORT || 3000;
 
