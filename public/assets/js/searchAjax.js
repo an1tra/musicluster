@@ -2,10 +2,9 @@ $("#run-search").on("click", function(event) {
     event.preventDefault();
     
     var albumName = $("#search-album").val().trim();
-    var queryURL = "http://ws.audioscrobbler.com/2.0/?method=album.search&album=" + albumName + "&api_key=c37ed91eeb7e472772c6e414db2773a3&format=json&limit=5"
     
     $.ajax({
-        url: queryURL,
+        url: "/api/albums/" + albumName,
         method: "GET"
     }).then(function(response) {
         var albumSearch = response.results.albummatches.album[0];
