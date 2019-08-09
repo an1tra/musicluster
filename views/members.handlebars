@@ -47,8 +47,9 @@
                      </div>
                  </div>
 
-                   <div class="description text-center">
-                     <p>This is where the users cluster will be displayed. </p>
+            <div class="row">
+                <div class="col-md-12">
+                     <div class="card-columns display: inline-block ">
                         {{#each user.Albums}}
                         <br>
                         <div class="album_list card" style="width: 18rem;">
@@ -59,28 +60,12 @@
                             </div>
                         </div>
                         {{/each}}
-
-                            {{!-- Documentation of how info was pulled from array
-                            {{#each user.Albums}}
-                                {{name}}
-                                {{artist}}
-                                {{cover}}
-                                {{link}}
-                                {{/each}} 
-                            --}}  
-                 </div>
-
-                 <div class="tab-content tab-space">
-                     <div class="tab-pane active text-center" id="search">
-                         <!--Music Searches Here-->
-                     </div>
-                     <div class="tab-pane text-center gallery" id="compile">
-                         <div class="row">
-                             <!--Music Cluster Goes Here-->
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
