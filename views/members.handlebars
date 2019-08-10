@@ -1,5 +1,6 @@
-<div class="profile-page">
-     <nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top  navbar-expand-lg">
+ 
+ <div class="profile-page">
+     <nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg">
          <div class="container">
              <div class="navbar-translate">
                  <a class="navbar-brand" href="/">
@@ -14,7 +15,7 @@
                          </a>
                      </li>
                      <li class="nav-item">
-                         <a class="nav-link" href="javascript:void(0)">
+                         <a class="nav-link" href="/members">
                              MyCluster
                          </a>
                      </li>
@@ -25,18 +26,20 @@
                      </li>
                      </li>
                  </ul>
-             
-         </div>
      </nav>
-     <div class="page-header header-filter" data-parallax="true" style="background-image:url('assets/images/bg.jpg');">
+
+     <div class="page-header header-filter" data-parallax="true">
      </div>
+
+     {{!-- style="background-image:url('assets/images/bg.jpg');" --}}
+
      <div class="main main-raised">
          <div class="profile-content">
              <div class="container">
                  <div class="row">
                      <div class="col-md-6 ml-auto mr-auto">
                          <div class="profile">
-                             <div class="avatar-username">
+                             <div class="avatar-profile">
                                  <img src="{{user.avatarPath}}" alt="profile Image"
                                      class="img-raised rounded-circle img-fluid">
                              </div>
@@ -47,40 +50,29 @@
                      </div>
                  </div>
 
-                   <div class="description text-center">
-                     <p>This is where the users cluster will be displayed. </p>
-                        {{#each user.Albums}}
-                        <br>
-                        <div class="album_list card" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">{{name}}</h5>
-                                <a href = {{link}}> <img class="card-img-top" src= "{{cover}}" alt="Cover Album Image"></a>
-                                <h5 class="card-title">{{artist}}</h5>
-                            </div>
-                        </div>
-                        {{/each}}
+                 <div class="row">
+                     <div class="col-md-12">
+                         <div class="card-columns display: inline-block ">
+                             {{#each user.Albums}}
+                             <br>
+                             <div class="album_list card shadow" style="width: 18rem;">
+                                 <div class="card-body">
+                                     <h5 class="card-title text-center">{{name}}</h5>
+                                     <a href={{link}} target="_blank"> <img class="card-img-top" src="{{cover}}"
+                                             alt="Cover Album Image"></a>
+                                     <h5 class="card-title text-center">{{artist}}</h5>
+                                 </div>
+                             </div>
+                             {{/each}}
 
-                            {{!-- Documentation of how info was pulled from array
-                            {{#each user.Albums}}
-                                {{name}}
-                                {{artist}}
-                                {{cover}}
-                                {{link}}
-                                {{/each}} 
-                            --}}  
-                 </div>
-
-                 <div class="tab-content tab-space">
-                     <div class="tab-pane active text-center" id="search">
-                         <!--Music Searches Here-->
-                     </div>
-                     <div class="tab-pane text-center gallery" id="compile">
-                         <div class="row">
-                             <!--Music Cluster Goes Here-->
                          </div>
+
+
                      </div>
                  </div>
              </div>
          </div>
-     </div>
-</div>
+
+
+
+      
