@@ -52,7 +52,7 @@ passport.deserializeUser(function(obj, cb) {
 });
 
 //NEW CODE
-var LastFMStrategy = require('passport-lastfm')
+/*var LastFMStrategy = require('passport-lastfm')
 var _ = require('lodash');
 var cb_url = 'http://localhost:3000';
 
@@ -91,7 +91,7 @@ passport.use(new LastFMStrategy({
   else{
     return done(null, false, {message:'Must be logged in'});
   }
-}));
+}));*/
 // NEW CODE
 //
 // Exporting our configured passport
